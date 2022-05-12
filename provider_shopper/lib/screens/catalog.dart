@@ -44,10 +44,17 @@ class _AddButton extends StatelessWidget {
       // Here, we are only interested whether [item] is inside the cart.
       (cart) => cart.items.contains(item),
     );
+    void removeItem(Item item) {
+      var cart = context.read<CartModel>();
+      cart.remove(item);
+    }
 
     return TextButton(
       onPressed: isInCart
-          ? null
+          ? () {
+              var cart = context.read<CartModel>();
+              cart.remove(item);
+            }
           : () {
               // If the item is not in cart, we let the user add it.
               // We are using context.read() here because the callback
@@ -65,7 +72,7 @@ class _AddButton extends StatelessWidget {
         }),
       ),
       child: isInCart
-          ? const Icon(Icons.check, semanticLabel: 'ADDED')
+          ? const Icon(Icons.check, semanticLabel: 'ADDED',color: Colors.blue,)
           : const Text('ADD'),
     );
   }

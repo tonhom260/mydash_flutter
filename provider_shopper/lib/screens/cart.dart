@@ -69,6 +69,8 @@ class _CartTotal extends StatelessWidget {
     var hugeStyle =
         Theme.of(context).textTheme.headline1!.copyWith(fontSize: 48);
 
+     var totalPrice = context.watch<CartModel>().totalPrice;
+
     return SizedBox(
       height: 200,
       child: Center(
@@ -81,14 +83,14 @@ class _CartTotal extends StatelessWidget {
             //
             // The important thing is that it will not rebuild
             // the rest of the widgets in this build method.
-            Consumer<CartModel>(
-                builder: (context, cart, child) =>
-                    Text('\$${cart.totalPrice}', style: hugeStyle)),
+
+            Text('\$${totalPrice}', style: hugeStyle),
+
             const SizedBox(width: 24),
             TextButton(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Buying not supported yet.')));
+                    const SnackBar(content: Text('JUST DEMO DUDE.')));
               },
               style: TextButton.styleFrom(primary: Colors.white),
               child: const Text('BUY'),

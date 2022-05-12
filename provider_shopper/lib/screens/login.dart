@@ -9,6 +9,9 @@ class MyLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController password = TextEditingController();
+    TextEditingController username = TextEditingController();
+
     return Scaffold(
       body: Center(
         child: Container(
@@ -21,11 +24,13 @@ class MyLogin extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1,
               ),
               TextFormField(
+                controller: username,
                 decoration: const InputDecoration(
                   hintText: 'Username',
                 ),
               ),
               TextFormField(
+                controller: password,
                 decoration: const InputDecoration(
                   hintText: 'Password',
                 ),
@@ -38,6 +43,7 @@ class MyLogin extends StatelessWidget {
                 child: const Text('ENTER'),
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/catalog');
+                  print(password.value.toString());
                 },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.yellow,
