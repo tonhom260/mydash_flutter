@@ -18,14 +18,15 @@ class AppStyle{
     Colors.blueGrey.shade100,
   ];
 
-static TextStyle mainTitle = GoogleFonts.roboto(fontSize:18.0, fontWeight: FontWeight.bold
+static TextStyle mainTitle = GoogleFonts.roboto(fontSize:20.0, fontWeight: FontWeight.bold
 );
 
-static TextStyle mainContent = GoogleFonts.nunito(fontSize:16.0,
+static TextStyle mainContent = GoogleFonts.nunito(
+    fontSize:16.0,
     fontWeight: FontWeight.normal
 );
 
-static TextStyle dateTitle = GoogleFonts.roboto(fontSize:18.0,
+static TextStyle dateTitle = GoogleFonts.roboto(fontSize: 15.0,
     fontWeight: FontWeight.w500
 );
 

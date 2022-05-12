@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../styles/app_style.dart';
 import '../widget/note_card.dart';
+import 'note_reader.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,6 +12,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () { },),
       backgroundColor: AppStyle.mainColor,
       appBar: AppBar(
         elevation: 0.0,
@@ -37,22 +40,23 @@ class HomeScreen extends StatelessWidget {
                     .instance
                     .collection('Notes')
                     .snapshots(),
-                builder: (context,AsyncSnapshot snapshot){//require AsyncSnapshot type ต้องใส่ typeด้วย
+                builder: (context,AsyncSnapshot snapshot){
+                  //require AsyncSnapshot type ต้องใส่ typeด้วย
                   if(snapshot.connectionState == ConnectionState.waiting)
                   {return Center(
                     child: CircularProgressIndicator(),
                   );}
-                  if(snapshot.hasData){
-                        return
-                      GridView(
+                  if(snapshot.hasData){return GridView(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         ),
                       children:[
-                        Text('test We have data Alrdy')
+                        ...snapshot.data!.docs.map((note)=>noteCard((){
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (_)=>NoteReaderScreen(doc: note))
+                                  );
+                        },note))
                       ]
-                        // snapshot.data!.docs.map((note)=>noteCard((){},note)).
-
                       );
                   }
                   return Text('there\'s no Notes',style: GoogleFonts.nunito(
