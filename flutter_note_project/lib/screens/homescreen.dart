@@ -46,7 +46,8 @@ class HomeScreen extends StatelessWidget {
                   {return Center(
                     child: CircularProgressIndicator(),
                   );}
-                  if(snapshot.hasData){return GridView(
+                  if(snapshot.hasData){
+                    return GridView(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         ),

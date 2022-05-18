@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "778003369526",
+    "project_id": "auth15-5",
+    "storage_bucket": "auth15-5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778003369526:android:927ad161b27b788f27d297",
+        "android_client_info": {
+          "package_name": "com.example.fbauth15_5"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778003369526-tdamssbdn5o23f536321r0a8t011ouht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMj7-ad44JEQyOZflwSgda10KnydBYFJU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778003369526-tdamssbdn5o23f536321r0a8t011ouht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
